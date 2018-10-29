@@ -4,6 +4,7 @@ const morgan = require("morgan")
 const md5 = require("md5")
 const cors = require("cors")
 const fetch = require("node-fetch")
+const helmet = require('helmet')
 require("dotenv").config()
 
 // CORS
@@ -12,6 +13,7 @@ app.use(cors(corsOptions))
 
 // MIDDLEWARE
 app.use(morgan("dev"))
+app.use(helmet())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
